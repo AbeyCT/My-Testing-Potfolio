@@ -51,19 +51,7 @@
     color: #000000;
   }
   
-  /* .login-btn {
-    background-color: #ffff;
-    padding: 0.5rem 1rem;
-    color: #000000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-  } */
   
-  /* .login-btn:hover {
-    background-color: #444444;
-    color: #ffff;
-  } */
   
   /* Hamburger Menu */
   .hamburger {
@@ -99,15 +87,103 @@
   .box img {
     border-radius: 50%;
     background-color: #333333;
-    width: 17%;
-    height: 130px;
+    width: 100%; /* Make the image responsive */
+    max-width: 130px; /* Set a max width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the circle */
+    margin: 1rem 0; /* Add margin for spacing */
   }
   
-  /* Testimonial Section */
-  .testimonial {
-    margin-bottom: 1rem;
-    font-style: italic;
+ 
+  
+  /* Flexbox for Projects Section */
+.projectFlex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows wrapping to avoid overlap */
+  width: 100%;
+  gap: 20px; /* Adds spacing between project cards */
+  height: auto;
+}
+
+/* Project Card Styling */
+.project-card {
+  background-color: #07020233;
+  color: #ffffff;
+  width: 30%;
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transition */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover Effect for Project Cards */
+.project-card:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+}
+
+
+#clients-say-heading {
+  text-align: center;
+  font-size: 2em; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+
+#testimonials {
+  text-align: center;
+  padding: 20px;
+  overflow: hidden; /* Hide overflow to create a neat scrolling effect */
+}
+
+.testimonial-container {
+  display: flex;
+  animation: scrollTestimonials 20s linear infinite; /* Increased duration for slower scrolling */
+}
+
+.testimonial {
+  min-width: 300px; /* Minimum width to ensure readability */
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  margin: 0 10px; /* Margin between testimonials */
+}
+
+/* Different background colors for each testimonial */
+#testimonial1 {
+  background-color: #ff6f61;
+}
+
+#testimonial2 {
+  background-color: #6ab04c;
+}
+
+#testimonial3 {
+  background-color: #2980b9;
+}
+
+#testimonial4 {
+  background-color: #8e44ad;
+}
+
+/* Continuous scrolling keyframes */
+@keyframes scrollTestimonials {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-100%); /* Move left */
+  }
+}
+
+
+
   
   /* Contact Form */
   form {
@@ -150,25 +226,102 @@
     background: linear-gradient(to right, #007bff, #6a11cb);
   }
   
-  /* Footer Section */
-  .footer {
-    background: linear-gradient(to right, #007bff, #6a11cb);
-    color: #fff;
-    padding: 2rem;
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
-  .footer a {
-    color: #ffe400;
-    text-decoration: none;
-  }
-  
-  .footer p {
-    margin: 0.5rem 0;
-  }
+ /* Footer Section */
+.footer {
+  background: linear-gradient(to right, #007bff, #6a11cb);
+  color: #fff;
+  padding: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer h2 {
+  margin-bottom: 1rem;
+}
+
+.footer a {
+  color: #ffe400;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+/* Flexbox for contact and social media */
+.contact-info, .social-media {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+/* Hover effects for icons */
+.footer i {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffcc00; /* Change link color on hover */
+}
+
+.footer i:hover {
+  color: #ffcc00; /* Change icon color on hover */
+  transform: scale(1.2); /* Slight zoom-in effect */
+}
+
+/* Copyright styling */
+.copyright {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #fff;
+}
+
+
+
+
+
+
+
   
   /* Responsive Design */
+
+  /* Responsive for Tablet (Medium Screens) */
+@media (max-width: 900px) {
+  .project-card {
+    width: 45%; /* Adjusts the width for tablets */
+    margin-bottom: 20px; /* Adds spacing between rows */
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center; /* Center items on tablet */
+  }
+
+  .contact-info, .social-media {
+    margin-bottom: 1.5rem; /* Space between sections */
+    flex: none; /* Prevent flex-grow on smaller screens */
+  }
+
+  .social-media p {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Wrap social media links */
+  }
+
+  .social-media a {
+    margin: 0 0.5rem; /* Space between social media links */
+  }
+}
+
+
   @media (max-width: 768px) {
     .hamburger {
       display: flex;
@@ -185,7 +338,7 @@
       display: flex;
       background: rgba(0, 0, 0, 0.8);
       position: absolute;
-      top: 60px;
+      top: 50px;
       left: 1;
       width: 50%;
       padding: 1rem 0;
@@ -194,7 +347,87 @@
     nav ul li {
       margin: 1rem 0;
     }
-  }
+
+    .box {
+      padding: 1.5rem; /* Adjust padding on smaller screens */
+    }
   
- 
+    .box img {
+      max-width: 100px; /* Smaller max width for smaller screens */
+    }
+  
+    h1 {
+      font-size: 1.5em; /* Smaller font size on smaller screens */
+    }
+  
+    p {
+      font-size: 1em; /* Adjust paragraph font size */
+    }
+
+    .testimonial-container {
+      flex-direction: column; /* Stack testimonials vertically on small screens */
+      animation: none; /* Stop the animation on smaller screens for readability */
+    }
+  
+    .testimonial {
+      min-width: auto; /* Allow testimonials to take full width */
+      margin: 10px 0; /* Adjust margin for stacked layout */
+    }
+  }
+
+   
+
+  /* Responsive for Mobile (Small Screens) */
+@media (max-width: 600px) {
+  .project-card {
+    width: 100%; /* Full width for mobile screens */
+    margin-bottom: 20px; /* Adds spacing between rows */
+  }
+  .footer {
+    padding: 1rem; /* Reduce padding for mobile */
+  }
+
+  .footer h2 {
+    font-size: 1.5em; /* Smaller heading for mobile */
+  }
+
+  .footer p {
+    font-size: 0.9em; /* Smaller paragraph for mobile */
+  }
+
+  .footer i {
+    font-size: 1.2rem; /* Smaller icons for mobile */
+  }
+}
+  
+  
+  
+  @media (max-width: 480px) {
+    .box {
+      padding: 1rem; /* Further adjust padding for very small screens */
+    }
+  
+    h1 {
+      font-size: 1.2em; /* Smaller font size for very small screens */
+    }
+  
+    p {
+      font-size: 0.9em; 
+    }
+    .footer {
+      padding: 0.5rem; /* Further reduce padding for very small screens */
+    }
+  
+    .footer h2 {
+      font-size: 1.2em; /* Further decrease heading size */
+    }
+  
+    .footer p {
+      font-size: 0.8em; /* Further decrease paragraph size */
+    }
+  
+    .footer i {
+      font-size: 1rem; /* Further decrease icon size */
+    }
+  }
   
